@@ -18,8 +18,9 @@ export default function ({cep}: props) {
         buscarBairro()
     }, [cep]) 
 
-    return <>
-        <input type="text" value={bairro} />
-    </>
+    return <div className="container-bairro">
+        <label htmlFor="bairro">Bairro:</label>
+        <input id="bairro" type="text" value={bairro} />
+    </div>
 
 }

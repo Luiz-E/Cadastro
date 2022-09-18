@@ -18,8 +18,9 @@ export default function({cep}: props) {
         buscarLogradouro()
     }, [cep])
 
-    return <>
-        <input type="text" value={logradouro} />
-    </>
+    return <div className="container-rua">
+        <label htmlFor="rua">Rua:</label>
+        <input id="rua" type="text" value={logradouro} />
+    </div>
 
 }

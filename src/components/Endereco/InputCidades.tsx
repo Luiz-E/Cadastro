@@ -32,10 +32,11 @@ export default function ({ cep, estadoAtual }: props) {
         buscarCidades()
     }, [cep, estadoAtual])    
 
-    return <>
-        <select>
+    return <div className="container-cidade">
+        <label htmlFor="cidade">Cidade:</label>
+        <select id="cidade">
             {listado ? "" : <option >insira o cep ou selecione um estado</option>}
             {cidades.map(({nome}, idx) => <option key={idx} value={nome}>{nome}</option>)}
         </select>
-    </>
+    </div>
 }
