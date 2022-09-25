@@ -39,11 +39,11 @@ export default function ({cep, estadoAtual, setEstadoAtual}: props) {
             buscarEstado()
         }, [cep])
 
-    return <div className="container-estado">
+    return <>
         <label htmlFor="estado">UF:</label>
         <select id="estado" onChange={buscarEstadoSemCep}>
             {listado ? "" : <option>Estado</option>}
             {estados.map(({ sigla, nome }, idx) => <option key={idx} value={sigla}>{sigla} - {nome}</option>)}
         </select>
-    </div>
+    </>
 }

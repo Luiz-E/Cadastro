@@ -1,41 +1,83 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    font-family: "Merriweather Sans", sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper {
+    margin: auto;
+    width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.wrapper > div {
+    margin-top: 50px;
 }
 
-.card {
-  padding: 2em;
+.buttonContainer {
+    margin-top: 20px !important;
 }
 
-.read-the-docs {
-  color: #888;
+h2 {
+    color: #fff;
+    background-color: #7dc4e8;
+    padding: 15px;
+    border: 1px solid #888;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+h2,
+#dadosEndereco,
+#dadosPessoais {
+    width: 30vw;
+    margin: auto;
+}
+
+#dadosEndereco,
+#dadosPessoais {
+    height: 40vh;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    border: 1px solid #888;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#dadosEndereco span,
+#dadosPessoais span {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#dadosEndereco span:last-child,
+#dadosPessoais span:last-child {
+    border: none;
+}
+
+span input,
+span select {
+    font-size: 16px;
+    max-width: 50%;
+}
+.next {
+    border: 1px solid #222;
+    background: #7dc4e8;
+    transition: background-color ease-out 0.3s;
+}
+
+.next:hover,
+._35Ago ._2kL0S {
+    border: 1px solid #012d5b;
+    background: #214dab;
 }

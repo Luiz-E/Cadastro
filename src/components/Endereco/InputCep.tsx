@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
+import InputMask from 'react-input-mask';
 
 type props = {
     setCep: Dispatch<SetStateAction<string>>
@@ -7,16 +8,13 @@ type props = {
 export default function ({setCep}: props) {
 
     function inputOnChange(cep: HTMLInputElement) {
-        if (cep.value.length === 5) {
-            cep.value = cep.value + "-"
-        }
-        if (cep.value.length === 9) {
+        if (cep.value.indexOf("_") == -1) {
             setCep(cep.value.replace("-",""))
         }
     }
 
-    return <div className="container-cep">
+    return <>
         <label htmlFor="cep">CEP:</label>
-        <input id="cep" size={8} type="text" maxLength={9} onChange={cep => inputOnChange(cep.target)} />
-    </div>
+        <InputMask mask="99999-999" id="cep" size={8} type="text" onChange={(cep: { target: HTMLInputElement; }) => inputOnChange(cep.target)} />
+    </>
 }

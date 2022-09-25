@@ -9,14 +9,24 @@ export default function() {
     const [estadoAtual, setEstadoAtual] = useState("")
     const [cep, setCep] = useState("")
 
-    return <div className="info">
+    return <>
         <h2>Cadastro: Dados de Endereço</h2>
-        <div>
-            <InputCep setCep={setCep}/>
-            <InputEstados cep={cep} estadoAtual={estadoAtual} setEstadoAtual={setEstadoAtual} />
-            <InputCidades cep={cep} estadoAtual={estadoAtual}/>
-            <InputBairro cep={cep}/>
-            <InputLogradouro cep={cep}/>
-        </div>
-    </div>
+        <form id="dadosEndereco">
+            <span>
+                <InputCep setCep={setCep}/>
+            </span>
+            <span>
+                <InputEstados cep={cep} estadoAtual={estadoAtual} setEstadoAtual={setEstadoAtual} />
+            </span>
+            <span>
+                <InputCidades cep={cep} estadoAtual={estadoAtual}/>
+            </span>
+            <span>
+                <InputBairro cep={cep}/>
+            </span>
+            <span>
+                <InputLogradouro cep={cep}/>
+            </span>
+        </form>
+    </>
 }
