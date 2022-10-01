@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 type props = {
     cep: string
