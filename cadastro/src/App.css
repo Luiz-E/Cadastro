@@ -1,0 +1,120 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+body {
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .progress-bar {
+    width: 400px;
+    height: 10px;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.container .progress-bar div {
+    width: 33.3%;
+    height: 100%;
+    background-color: rgb(98, 0, 255);
+}
+
+.forms {
+    width: 100%;
+}
+
+.forms > * {
+    border: 1px solid #000;
+}
+
+.forms .header {
+    color: #fff;
+    background-color: #7dc4e8;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.forms .body {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.forms .body .form {
+    height: 40vh;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.forms .body .form span {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.forms .body .form span:last-child {
+    border: none;
+}
+
+.forms .body .form span input,
+span select {
+    font-size: 16px;
+    max-width: 50%;
+}
+
+.container .footer {
+    margin-top: 15px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.container .footer button {
+    flex: 1;
+    height: 2rem;
+
+    border-radius: 5px;
+
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.container .footer .prev {
+    background-color: #fff;
+    transition: background-color ease-out 0.3s;
+}
+
+.container .footer .prev:hover {
+    border-color: #ddd;
+    background: #ddd;
+}
+
+.container .footer .next {
+    color: #222;
+    background: #7dc4e8;
+    transition: all ease-out 0.3s;
+}
+
+.container .footer .next:hover {
+    color: #eee;
+    border-color: #012d5b;
+    background: #214dab;
+}
