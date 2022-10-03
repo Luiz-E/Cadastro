@@ -76,7 +76,7 @@ app.post("/api/user", (req, res) => {
 })
 
 app.post("/api/makelogin", (req,res) => {
-    const sql = "SELECT name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street WHERE email = ? AND password = ?"
+    const sql = "SELECT name, birthDate, cpf, tel, secondTel, email, cep, uf, city, district, street WHERE email = ? AND password = ?"
     const {email, password} = req.body
 
     database.get(sql, [email, password], (err, row) => {
