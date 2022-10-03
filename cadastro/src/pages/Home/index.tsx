@@ -19,6 +19,7 @@ export default function({sesid}: props){
             }
         })
         const info = await req.json()
+        console.log(info)
         setUserInfo(info)
     }
 
