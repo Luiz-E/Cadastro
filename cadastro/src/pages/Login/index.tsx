@@ -14,6 +14,8 @@ export default function({setSesId}: props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [status, setStatus] = useState("Insira as informações de login")
+
     const handleEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
     }
@@ -38,14 +40,14 @@ export default function({setSesId}: props) {
                 setSesId(login.sesid)
                 navigate('/');
             } else {
-                alert("Não deu certo.");
+                setStatus("Usuário não encontrado")
             }
         }
     }
 
     return (
         <div>
-            <h2>Página Fechada</h2>
+            <h2>{status}</h2>
 
             <input
                 type="text"

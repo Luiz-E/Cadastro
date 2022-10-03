@@ -76,7 +76,7 @@ app.post("/api/user", (req, res) => {
 })
 
 app.post("/api/makelogin", (req,res) => {
-    const sql = "SELECT id, name, email FROM user WHERE email = ? AND password = ?"
+    const sql = "SELECT id, name, email, birthDate, cpf, password, tel, secondTel, cep, uf, city, district, street FROM user WHERE email = ? AND password = ?"
     const {email, password} = req.body
 
     database.get(sql, [email, password], (err, row) => {
@@ -85,7 +85,7 @@ app.post("/api/makelogin", (req,res) => {
             return
         }
 
-        if (!row.id) {
+        if (!row) {
             res.status(400).json({"message": "no user"})
             return
         }

@@ -5,9 +5,24 @@ type props = {
     sesid: string | null
 }
 
+type user = {
+    name: string
+    birthDate: string
+    cpf: string
+    password: string
+    tel: string
+    secondTel: string
+    email: string
+    cep: string
+    uf: string
+    city: string
+    district: string
+    street: string
+}
+
 export default function({sesid}: props){
 
-    const [userInfo, setUserInfo] = useState({name: ""}) 
+    const [userInfo, setUserInfo] = useState<user>() 
 
     const navigate = useNavigate()
 
@@ -19,8 +34,8 @@ export default function({sesid}: props){
             }
         })
         const info = await req.json()
-        console.log(info)
         setUserInfo(info)
+        
     }
 
     useEffect(() => {
@@ -32,5 +47,18 @@ export default function({sesid}: props){
         setUser()
     }, [])
 
-    return <div><h2>{userInfo?.name}</h2></div>
+    return <div>
+        <h2>{userInfo?.name}</h2>
+        <h2>{userInfo?.birthDate}</h2>
+        <h2>{userInfo?.cpf}</h2>
+        <h2>{userInfo?.password}</h2>
+        <h2>{userInfo?.tel}</h2>
+        <h2>{userInfo?.secondTel}</h2>
+        <h2>{userInfo?.email}</h2>
+        <h2>{userInfo?.cep}</h2>
+        <h2>{userInfo?.uf}</h2>
+        <h2>{userInfo?.city}</h2>
+        <h2>{userInfo?.district}</h2>
+        <h2>{userInfo?.street}</h2>
+    </div>
 }
