@@ -37,7 +37,7 @@ export default function({formData, setFormData}: props) {
 				onChange={(e) => {
 					setFormData({ ...formData, tel: e.target.value });
 				}}
-				mask="(99) 99999-99" id="number"/>
+				mask="(99) 99999-9999" id="number"/>
 		</span>
 		<span>
 			<label htmlFor="secondTel">Telefone secundário:</label>
@@ -45,7 +45,7 @@ export default function({formData, setFormData}: props) {
 				onChange={(e) => {
 					setFormData({ ...formData, secondTel: e.target.value });
 				}}
-				mask="(99) 99999-99" id="secondTel"/>
+				mask="(99) 99999-9999" id="secondTel"/>
 		</span>
 		<span>
 			<label htmlFor="email">Email:</label>

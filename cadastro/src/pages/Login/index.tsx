@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
+import "./style.css"
 
 type id = null | string
 
@@ -14,7 +15,7 @@ export default function({setSesId}: props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const [status, setStatus] = useState("Insira as informações de login")
+    const [status, setStatus] = useState("Login")
 
     const handleEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
@@ -45,23 +46,32 @@ export default function({setSesId}: props) {
         }
     }
 
-    return (
-        <div>
-            <h2>{status}</h2>
-
-            <input
-                type="text"
-                value={email}
-                onChange={handleEmailInput}
-                placeholder="Digite seu e-mail"
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={handlePasswordInput}
-                placeholder="Digite sua senha"
-            />
+    return <div className="container login">
+            <div className="header">
+                <h1>{status}</h1>
+            </div>
+            <div className="body">
+                <span>
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        id="email"
+                        type="text"
+                        value={email}
+                        onChange={handleEmailInput}
+                        placeholder="Digite seu e-mail"
+                        />
+                </span>
+                <span>
+                    <label htmlFor="password">Senha: </label>
+                    <input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={handlePasswordInput}
+                        placeholder="Digite sua senha"
+                    />
+                </span>
+            </div>
             <button onClick={handleLogin}>Logar</button>
         </div>
-    );
 }

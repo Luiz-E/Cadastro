@@ -1,0 +1,35 @@
+.home > * {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px;
+    border-bottom: 1px solid black;
+}
+
+h2 {
+    padding: 8px;
+    color: #fff;
+    background-color: #7dc4e8;
+    border-radius: 5px;
+    text-align: left;
+    margin: 0 0 10px 0;
+}
+
+.home div span {
+    margin: 5px auto;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #bbb;
+}
+
+.home div span * {
+    display: inline;
+}
+
+.home div span:last-child {
+    border-bottom: none;
+    margin-bottom: 10px;
+}
