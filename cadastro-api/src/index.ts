@@ -27,7 +27,7 @@ app.get("/api/users", (req, res) => {
 })
 
 app.get("/api/user/:id", (req,res) => {
-    const sql = "SELECT * FROM user WHERE id = ? "
+    const sql = "SELECT email, password FROM user WHERE id = ? "
 
     database.get(sql, [req.params.id], (err,row) => {
         if (err) {
@@ -56,14 +56,16 @@ app.post("/api/user", (req, res) => {
             return
     }
 
+    
     const {name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street} = req.body
     const sql = `INSERT INTO user 
-                (name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street) VALUES 
-                (?,?,?,?,?,?,?,?,?,?,?,?)`
+    (name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street) VALUES 
+    (?,?,?,?,?,?,?,?,?,?,?,?)`
     const params = [name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street]
-
+    
     database.run(sql, params , function (this: RunResult, err) {
         if (err) {
+            console.log(name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street)
             res.status(400).json({"error": err.message})
             return
         }
@@ -102,5 +104,53 @@ app.post("/api/logged/:sesid", (req, res) => {
     res.json(session[req.params.sesid] || "nada")
  })
 
+ app.delete("/api/user/:id", (req,res) => {
+    const sql = "DELETE FROM user WHERE id = ?"
+    database.run(sql, [req.params.id], 
+        function(this: RunResult, err) {
+            if (err) {
+                res.status(400).json({"message": err.message})
+                return
+            }
+            res.json({"message":"deleted", changes:this.changes})
+        }
+    )
+ })
  
+
+app.patch("/api/user/:id", (req, res) => {
+    const {name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street} = req.body
+    const sql = `
+      UPDATE user SET 
+         name = COALESCE(?,name), 
+         birthDate = COALESCE(?,birthDate), 
+         cpf = COALESCE(?,cpf), 
+         password = COALESCE(?,password), 
+         tel = COALESCE(?,tel), 
+         secondTel = COALESCE(?,secondTel), 
+         email = COALESCE(?,email), 
+         cep = COALESCE(?,cep), 
+         uf = COALESCE(?,uf), 
+         city = COALESCE(?,city), 
+         district = COALESCE(?,district), 
+         street = COALESCE(?,street) 
+      WHERE 
+         id = ?
+         `
+   database.run(sql, [name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street, req.params.id],
+    function(this: RunResult, err) {
+        if (err) {
+                console.log(err)
+                res.status(400).json({"error": err.message})
+                return
+            }
+            res.json({
+                message: "success",
+                data: {name, birthDate, cpf, password, tel, secondTel, email, cep, uf, city, district, street},
+                changes: this.changes
+            })
+        }
+   )
+})
+
 app.listen(port, () => console.log(`⚡Server running on port ${port}`))

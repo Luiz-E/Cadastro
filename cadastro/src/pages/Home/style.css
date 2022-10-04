@@ -33,3 +33,55 @@ h2 {
     border-bottom: none;
     margin-bottom: 10px;
 }
+
+.home div span input {
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 40%;
+}
+
+.buttons {
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.buttons button {
+    margin-top: 15px;
+    flex: 1;
+    height: 2rem;
+
+    border-radius: 5px;
+
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all ease-out 0.3s;
+}
+
+.buttons .delete {
+    color: #222;
+    background: #7dc4e8;
+}
+
+.buttons .delete:hover {
+    color: #eee;
+    border-color: #012d5b;
+    background: #214dab;
+}
+
+.buttons .update {
+    background-color: #fff;
+    transition: background-color ease-out 0.3s;
+}
+
+.buttons .update:hover {
+    border-color: #ddd;
+    background: #ddd;
+}

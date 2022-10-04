@@ -14,7 +14,7 @@ export default function() {
 
   const [sesId, setSesId] = useState<id>(null)
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
     setSesId(null)
     navigate("/login")
   }
@@ -22,7 +22,6 @@ export default function() {
   return (
     <div className="App">
       <header>
-        <h1>Header do site</h1>
         <nav>
           <Link to="/">Home</Link>
           {!sesId && <Link to="/signup">Cadastrar</Link>}
@@ -32,8 +31,8 @@ export default function() {
       </header>
       <hr />
       <Routes>
-        <Route path="/" element={<Home sesid={sesId} />} />
-        <Route path="/signup" element={<Form />} />
+        <Route path="/" element={<Home sesid={sesId} setSesId={setSesId} />} />
+        <Route path="/signup" element={<Form setSesId={setSesId} />} />
         <Route path="/login" element={<Login setSesId={setSesId} />} />
       </Routes>
     </div>
