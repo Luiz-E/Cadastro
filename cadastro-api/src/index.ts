@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors";
 import {RunResult} from "sqlite3"
 import database from "./database"
 
@@ -7,6 +8,7 @@ const app = express()
 const session: any = {}
 
 app.use(express.json())
+app.use(cors())
 app.use("/", express.static("../Cadastro/dist"))
 app.use("/login", express.static("../Cadastro/dist"))
 app.use("/signup", express.static("../Cadastro/dist"))
@@ -153,4 +155,22 @@ app.patch("/api/user/:id", (req, res) => {
    )
 })
 
-app.listen(port, () => console.log(`⚡Server running on port ${port}`))
+const fetchAllUsers = () => {
+    const sql = "SELECT * FROM user";
+
+    database.all(sql, [], (err, rows) => {
+        if (err) {
+            console.error("Error fetching users:", err.message);
+            return;
+        }
+
+        console.log("All Users:", rows);
+    });
+};
+
+fetchAllUsers()
+
+app.listen(port, () => {
+
+    console.log(`⚡Server running on port ${port}`)
+})

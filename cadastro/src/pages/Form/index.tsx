@@ -30,7 +30,7 @@ export default function ({setSesId}: props) {
     const formTitles = ["Dados Pessoais","Dados de Contato","Dados de Endereço"]
 
     async function enviarInfo(data: {}) {
-        const postInfo = await fetch("/api/user", {
+        const postInfo = await fetch("http://localhost:8080/api/user", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,10 +40,11 @@ export default function ({setSesId}: props) {
         })
 
         const info = await postInfo.json()
+
         if (info.message === "success") {
-            const reqInfoUser = await fetch(`/api/user/${info.id}`)
+            const reqInfoUser = await fetch(`http://localhost:8080/api/user/${info.id}`)
             const infoUser = await reqInfoUser.json()
-            const req = await fetch("/api/makelogin", {
+            const req = await fetch("http://localhost:8080/api/makelogin", {
                 method:'POST',
                 headers: {
                     "Content-Type": "application/json"

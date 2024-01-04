@@ -27,7 +27,7 @@ export default function({setSesId}: props) {
 
     const handleLogin = async () => {
         if (email && password) {
-            const req = await fetch("/api/makelogin", {
+            const req = await fetch("http://localhost:8080/api/makelogin", {
                 method:'POST',
                 headers: {
                     "Content-Type": "application/json"

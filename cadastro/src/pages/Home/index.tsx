@@ -34,7 +34,7 @@ export default function({sesid, setSesId}: props){
     const navigate = useNavigate()
     
     async function setUser() {
-        const req = await fetch(`/api/logged/${sesid}`, {
+        const req = await fetch(`http://localhost:8080/api/logged/${sesid}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,7 +56,7 @@ export default function({sesid, setSesId}: props){
 
     async function atualizar() {
         console.log(userInfo)
-        fetch(`/api/user/${userInfo?.id}`, {
+        fetch(`http://localhost:8080/api/user/${userInfo?.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
